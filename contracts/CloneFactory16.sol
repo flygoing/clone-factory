@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.6.0;
 
 /*
 The MIT License (MIT)
@@ -37,6 +37,17 @@ contract CloneFactory16 {
       mstore(add(clone, 0x14), targetBytes)
       mstore(add(clone, 0x24), 0x5af43d82803e903d91602757fd5bf30000000000000000000000000000000000)
       result := create(0, clone, 0x33)
+    }
+  }
+
+  function create2Clone(address target, bytes32 salt) internal returns (address result) {
+    bytes20 targetBytes = bytes20(target)<<32;
+    assembly {
+      let clone := mload(0x40)
+      mstore(clone, 0x3d602980600a3d3981f3363d3d373d3d3d363d6f000000000000000000000000)
+      mstore(add(clone, 0x14), targetBytes)
+      mstore(add(clone, 0x24), 0x5af43d82803e903d91602757fd5bf30000000000000000000000000000000000)
+      result := create2(0, clone, 0x33, salt)
     }
   }
 

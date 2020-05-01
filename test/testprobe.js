@@ -25,21 +25,21 @@ contract("ContractProbe", (accounts) => {
         })
 
         it('should work', async () => {
-            const [isContract, forwardedTo] = await probe.probe(master.address);
+            const {isContract, forwardedTo} = await probe.probe(master.address);
             expect(isContract).toBe(true);
             expect(forwardedTo).toBe(master.address);
         })
 
         it('should work with a clone', async () => {
-            const [isContract, forwardedTo] = await probe.probe(clone.address);
+            const {isContract, forwardedTo} = await probe.probe(master.address);
             expect(isContract).toBe(true);
             expect(forwardedTo).toBe(master.address);
         })
 
         it('should work with a regular address', async () => {
-            const [isContract, forwardedTo] = await probe.probe('0xA4caDe6ecbed8f75F6fD50B8be92feb144400CC4');
+            const {isContract, forwardedTo} = await probe.probe('0xA4caDe6ecbed8f75F6fD50B8be92feb144400CC4');
             expect(isContract).toBe(false);
-            expect(forwardedTo).toBe('0xA4caDe6ecbed8f75F6fD50B8be92feb144400CC4'.toLowerCase());
+            expect(forwardedTo).toBe('0xA4caDe6ecbed8f75F6fD50B8be92feb144400CC4');
         })
     })
 
@@ -83,7 +83,7 @@ contract("ContractProbe", (accounts) => {
         it('should work with a regular address', async () => {
             const [isContract, forwardedTo] = await probe.probe('0xA4caDe6ecbed8f75F6fD50B8be92feb144400CC4');
             expect(isContract).toBe(false);
-            expect(forwardedTo).toBe('0xA4caDe6ecbed8f75F6fD50B8be92feb144400CC4'.toLowerCase());
+            expect(forwardedTo).toBe('0xA4caDe6ecbed8f75F6fD50B8be92feb144400CC4');
         })
     })
 })

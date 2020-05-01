@@ -1,6 +1,6 @@
 {
   "name": "@optionality.io/clone-factory",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Create clone contracts with 96 bytes deployed on chain.",
   "main": "init.js",
   "directories": {
@@ -8,19 +8,21 @@
   },
   "scripts": {
     "test": "truffle test",
-    "generate": "node ./scripts/generate.js"
+    "generate": "node ./scripts/generate.js",
+    "compile": "./node_modules/.bin/truffle compile"
   },
   "author": "Peter M. Murray <pete@pmurray.com>",
   "license": "MIT",
   "devDependencies": {
-    "@optionality.io/evm-asm": "^0.1.2",
-    "ethereumjs-wallet": "^0.6.0",
-    "ethjs-query": "^0.3.3",
-    "expect": "^22.1.0",
-    "truffle": "5.0.0-beta.1",
+    "@optionality.io/evm-asm": "0.1.2",
+    "ethereumjs-wallet": "0.6.0",
+    "ethjs-query": "0.3.8",
+    "expect": "22.1.0",
+    "truffle": "^5.1.0",
     "truffle-wallet-provider": "github:crypedit/truffle-wallet-provider"
   },
   "dependencies": {
-    "r2pipe-promise": "^1.4.1"
+    "r2pipe-promise": "^1.4.1",
+    "web3": "^1.2.7"
   }
 }
